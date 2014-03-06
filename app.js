@@ -4,7 +4,8 @@ var express = require('express')
 	, server = http.createServer(app)
 	, io = require('socket.io').listen(server);
 
-server.listen(31677);
+var port = Number(process.env.PORT || 5000);
+server.listen(port);
 
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/index.html');
