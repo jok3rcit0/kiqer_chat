@@ -1,0 +1,29 @@
+{
+  "name": "chat_kiqer",
+  "version": "0.0.1",
+  "description": "chat para la plataforma de kiqer",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jok3rcit0/kiqer_chat"
+  },
+  "keywords": [
+    "chat",
+    "multi",
+    "room",
+    "nodejs"
+  ],
+  "author": "jok3r",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jok3rcit0/kiqer_chat/issues"
+  },
+  "homepage": "https://github.com/jok3rcit0/kiqer_chat",
+  "dependencies": {
+    "express": "^3.4.8",
+    "socket.io": "^0.9.16"
+  }
+}
