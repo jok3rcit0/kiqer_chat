@@ -11,10 +11,8 @@ app.get('/', function (req, res) {
   res.sendfile(__dirname + '/index.html');
 });
 
-var usernames = {};
-
-//Aka usar 'push' pa crear las salas de chat necesarias
-var rooms = ['General','Partido México','Partido Neza'];
+var usernames = [];
+var rooms = ['General'];
 
 io.sockets.on('connection', function (socket) {
 	
@@ -33,6 +31,19 @@ io.sockets.on('connection', function (socket) {
 	
 	socket.on('sendchat', function (data) {
 		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
+	});
+
+	socket.on('addroom', function (data) {
+		rooms.push(data);
+		socket.join(data);
+		
+		socket.emit('updatechat', 'Log:', socket.username + ' ha creado la sala '+ data);
+		socket.broadcast.to(socket.room).emit('updatechat', 'Log:', socket.username+' abandono esta sala');
+
+		socket.room = data;
+		socket.broadcast.to(data).emit('updatechat', 'Log:', socket.username+' se unio a la sala' + data);
+		socket.emit('updaterooms', rooms, data);
+
 	});
 	
 	socket.on('switchRoom', function(newroom){

@@ -1,7 +1,7 @@
 <script src="/socket.io/socket.io.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script>
-	var socket = io.connect('http://gentle-fortress-9485.herokuapp.com');
+	var socket = io.connect('http://localhost');
 	socket.on('connect', function(){
 	/** Traer sesion del usuario */
 		$.ajax({
@@ -50,6 +50,12 @@
 		});
 	});
 
+	$(function(){
+		$('#addroom').click( function() {
+			var m = prompt("Nombre de la Sala:","");
+			socket.emit('addroom', m);
+		})
+	})
 </script>
 <div style="float:left;width:100px;border-right:1px solid black;height:300px;padding:10px;overflow:scroll-y;">
 	<b>SALAS DE CHAT</b>
@@ -59,4 +65,5 @@
 	<div id="conversation"></div>
 	<input id="data" style="width:200px;" />
 	<input type="button" id="datasend" value="enviar" />
+	<input type="button" id="addroom"  value="Crear Room" />
 </div>
