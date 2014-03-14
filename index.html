@@ -1,5 +1,8 @@
 <script src="/socket.io/socket.io.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/tokeninput.js"></script>
+<link rel="stylesheet" href="css/token-input.css" type="text/css" />
+<link rel="stylesheet" href="css/token-input-fb.css" type="text/css" />
 <script>
 	var socket = io.connect('http://chatkiqer.herokuapp.com');
 	socket.on('connect', function(){
@@ -66,4 +69,15 @@
 	<input id="data" style="width:200px;" />
 	<input type="button" id="datasend" value="enviar" />
 	<input type="button" id="addroom"  value="Crear Room" />
+</div>
+<div>
+	<input type="text" id="amigos_kiqer" name="amigos" />
+	<input type="button" value="Submit" />
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$("#amigos_kiqer").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
+			theme: "facebook"
+		});
+	});
+	</script>
 </div>
