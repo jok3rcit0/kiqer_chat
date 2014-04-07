@@ -11,6 +11,7 @@ app.get('/', function (req, res) {
   res.sendfile(__dirname + '/index.html');
 });
 
+
 var usernames = [];
 var rooms = ['General'];
 

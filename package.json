@@ -24,6 +24,7 @@
   "homepage": "https://github.com/jok3rcit0/kiqer_chat",
   "dependencies": {
     "express": "^3.4.8",
-    "socket.io": "^0.9.16"
+    "socket.io": "^0.9.16",
+    "requirejs-middleware": "^0.1.2"
   }
 }
